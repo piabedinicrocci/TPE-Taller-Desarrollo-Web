@@ -1,0 +1,19 @@
+[
+{"articulo" : "cama puff", "material" : "tela pelo de mono", "precio" : 12000, "cantidad" : 1 },
+{"articulo" : "comedero doble", "material" : "acero", "precio" : 7100, "cantidad" : 7 },
+{"articulo" : "comedero triple", "material" : "acero", "precio" : 10000, "cantidad" : 7 },
+{"articulo" : "comedero/bebedero plegable", "material" : "silicona", "precio" : 1450, "cantidad" : 7 },
+{"articulo" : "comedero simple", "material" : "acero", "precio" : 3000, "cantidad" : 7 },
+{"articulo" : "alfombra para comederos", "material" : "goma", "precio" : 2100, "propiedad" : "antideslizante", "cantidad" : 7 },
+{"articulo" : "mordillo chupete", "material" : "goma", "precio" : 1600, "cantidad" : 1 },
+{"articulo" : "cepillo guante masajeador", "material" : "goma", "precio" : 2400, "cantidad" : 1 },
+{"articulo" : "collar", "material" : "tela", "precio" : 1200, "estampado" : [ "huellitas", "rayado", "circulos", "liso" ], "cantidad" : 1 },
+{"articulo" : "hueso", "material" : "goma", "precio" : 2400, "cantidad" : 1 },
+{"articulo" : "funda cubre asientos coche", "material" : "tela", "precio" : 11500, "cantidad" : 1 },
+{"articulo" : "combo 1", "art1" : { "nombre" : "comedero simple", "precio" : 3000 }, "art2" : { "nombre" : "alfombra para comederos", "precio" : 2100 }, "cantidad" : 1, "precio" : 4900 },
+{"articulo" : "combo 2", "art1" : { "nombre" : "cama puff", "precio" : 12000 }, "art2" : { "nombre" : "cepillo guante masajeador", "precio" : 2400 }, "art3" : { "nombre" : "soga para tirar", "precio" : 890 }, "cantidad" : 1, "precio" : 15090 },
+{"articulo" : "combo 3", "art1" : { "nombre" : "correa", "precio" : 1700 }, "art2" : { "nombre" : "collar", "precio" : 1200 }, "cantidad" : 1, "precio" : 2700 },
+{"articulo" : "pretal", "material" : "tela", "precio" : 9800, "cantidad" : 1 },
+{"articulo" : "bolso transportador", "material" : "tela", "precio" : 9500, "cantidad" : "1" },
+{"articulo" : "hueso masticable", "material" : "cuero deshidratado", "precio" : 1280, "cantidad" : "1" }
+]
