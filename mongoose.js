@@ -10,18 +10,113 @@ const ArticleSchema = new Schema({
     cantidad: Number,
 });
 
-async function conectar(){
-    await mongoose.connect(url).then(() => {
-        console.log('Conexión Exitosa')
-    }).catch((error) => {
-        console.error('Error al conectar a la base de datos:', error)
-    });
-}
-
-conectar().catch(console.dir);
-
-var Article = mongoose.model('tienda', ArticleSchema); //cat
-
 module.exports = Article;
 
-Article.create(data).then(() => console.log('Insertado con Exito')).catch((err) => console.error("Error: ", err)).finally(() => mongoose.connection.close());
+var Article = mongoose.model('articulos', ArticleSchema);
+var articulo = new Article({articulo:"botitas", precio: 1500, cantidad:3})
+
+async function conectar(){
+    try {
+        await mongoose.connect(url);
+        console.log("Conexión Exitosa");
+    } catch(err){
+        console.log(err);
+    }
+};
+
+async function insertar() {
+    try {
+        await conectar();
+        await articulo.save();
+        console.log("guardado");
+    } catch(error){
+        console.log(error);
+    } finally {
+        mongoose.connection.close(); 
+    }
+}
+//insertar();
+
+async function insertarVarios() {
+    try {
+        await conectar()
+        await Article.create(data);
+        console.log('json insertado')
+    } catch (err) {
+        console.error(err);
+    } finally{
+        mongoose.connection.close();
+
+}
+}
+//insertarVarios();
+
+async function eliminar() {
+    try {
+        await conectar();
+        const query = { articulo: "botitas" };
+        await Article.deleteOne(query)
+        console.log("eliminado");
+    } catch(error){
+        console.log(error);
+    } finally {
+        mongoose.connection.close(); 
+    }
+}
+//eliminar();
+
+async function eliminarVarios() {
+    try {
+        await conectar();
+        const query = {articulo: /comedero*/}
+        await Article.deleteMany(query)
+        console.log("eliminado");
+    } catch(error){
+        console.log(error);
+    } finally {
+        mongoose.connection.close(); 
+    }
+}
+//eliminarVarios();
+
+async function actualizar() {
+    try {
+        await conectar();
+        const query = {articulo: "collar" };
+        await Article.updateMany(query, { $inc: { precio: 1400 } });
+        console.log("actualizado");
+    } catch(error){
+        console.log(error);
+    } finally {
+        mongoose.connection.close(); 
+        
+    }
+}
+//actualizar();
+
+async function listarTodo() {
+    try {
+        await conectar();
+        const articulos = await Article.find();
+        console.log(articulos)
+    } catch(error){
+        console.log(error);
+    } finally {
+        mongoose.connection.close(); 
+    }
+}
+//listarTodo();
+
+async function buscar() {
+    try {
+        await conectar();
+        const query = { precio: { $gt: 500, $lt: 3000 } };
+        const articulos= await Article.find(query).select({_id:0, articulo: 1, precio: 1})
+        console.log(articulos)
+    } catch(error){
+        console.log(error);
+    } finally {
+        mongoose.connection.close(); 
+    }
+}
+//buscar();
