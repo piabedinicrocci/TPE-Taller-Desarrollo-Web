@@ -28,7 +28,7 @@ async function insertar() {
     try {
         await conectar();
         await articulo.save();
-        console.log("guardado");
+        console.log("articulo insertado");
     } catch(error){
         console.log(error);
     } finally {
@@ -41,7 +41,7 @@ async function insertarVarios() {
     try {
         await conectar()
         await Article.create(data);
-        console.log('json insertado')
+        console.log('articulos insertados')
     } catch (err) {
         console.error(err);
     } finally{
@@ -54,9 +54,9 @@ async function insertarVarios() {
 async function eliminar() {
     try {
         await conectar();
-        const query = { articulo: "botitas" };
+        const query = { articulo: "botitas"};
         await Article.deleteOne(query)
-        console.log("eliminado");
+        console.log("articulo eliminado");
     } catch(error){
         console.log(error);
     } finally {
@@ -70,7 +70,7 @@ async function eliminarVarios() {
         await conectar();
         const query = {articulo: /comedero*/}
         await Article.deleteMany(query)
-        console.log("eliminado");
+        console.log("articulos eliminados");
     } catch(error){
         console.log(error);
     } finally {
@@ -84,7 +84,7 @@ async function actualizar() {
         await conectar();
         const query = {articulo: "collar" };
         await Article.updateMany(query, { $inc: { precio: 1400 } });
-        console.log("actualizado");
+        console.log("articulos actualizados");
     } catch(error){
         console.log(error);
     } finally {
