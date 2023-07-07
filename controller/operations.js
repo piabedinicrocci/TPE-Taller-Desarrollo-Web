@@ -3,7 +3,7 @@ var model = require('../models/ArticleSchema.js');
 async function findAll(req, res) {
     try {
         const query = {};
-        const options = { "_id": 0, articulo: 1, precio: 1, cantidad: 1, material: 1  };
+        const options = { "_id": 0, articulo: 1, material: 1, precio: 1, stock: 1, imagen: 1};
         const out = await model.find(query, options);
         res.json(out);
     } catch (error) {
@@ -16,7 +16,7 @@ async function findByPrice(req, res) {
     try {
         const precio = req.params.precio;
         const query = { precio: precio };
-        const options = { "_id": 0, articulo: 1, precio: 1, cantidad: 1, material: 1  };
+        const options = { "_id": 0, articulo: 1, material: 1, precio: 1, stock: 1, imagen: 1};
         const out = await model.find(query, options);
         res.json(out);
     } catch (error) {
@@ -29,7 +29,7 @@ async function findByName(req, res) {
     try {
         const nombre = req.params.nombre;
         const query = { articulo: { $regex: nombre} };
-        const options = { "_id": 0, articulo: 1, precio: 1, cantidad: 1, material: 1 };
+        const options = { "_id": 0, articulo: 1, material: 1, precio: 1, stock: 1, imagen: 1};
         const out = await model.find(query, options);
         res.json(out);
     } catch (error) {

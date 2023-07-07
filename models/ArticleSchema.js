@@ -6,7 +6,8 @@ const ArticleSchema = new Schema ({
     articulo: String,
     material: String,
     precio: Number,
-    cantidad: Number,
+    stock: Number,
+    imagen: String
 });
 
 module.exports = mongoose.model('Article', ArticleSchema);
